@@ -1,14 +1,16 @@
 import React,{ useState } from "react";
 import { useForm } from 'react-hook-form';
-import { useSelector } from "react-redux";
+import {addStore} from '../redux/features/restaurantSlice'
+import { useDispatch, useSelector } from "react-redux";
 const AddRestaurant = () => {
-
+const dispatch = useDispatch()
 const {register , handleSubmit,reset,formState:{errors}} = useForm();
 const Alphabet = /^[a-zA-Z\s]+$/;
 
 const {stores} = useSelector((store)=>store.restaurantReducer) 
 
 const onSub = (data) => {
+dispatch(addStore(data))
 console.log(data);
 }
  

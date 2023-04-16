@@ -8,11 +8,7 @@ const onClicks = () => {
     let input_val = inputRef.current.value;
     navigate(`/?s=${input_val}`);
   };
-
-
-
-
-  return (
+return (
     <div>
       <div className="form-control ">
         <div className="input-group">

@@ -18,6 +18,15 @@ console.log(data);
     <div className="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
       <div className="space-y-4">
         <h1 className="text-center text-2xl font-semibold text-gray-600">Restaurant</h1>
+        <div className="">
+          <label className="block mb-1 text-gray-600 font-semibold">img</label>
+          <input {...register('main_image',
+          {
+            require:{value:true,message:'img required...'}
+          }
+          )} type="url" className="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" />
+          {errors.main_image && <p className=' text-red-500'>{errors.main_image.message}</p>}
+        </div>
         <div>
           <label className="block mb-1 text-gray-600 font-semibold">Name Restaurant</label>
           <input {...register('name',
@@ -27,7 +36,7 @@ console.log(data);
           minLength:{value:2,message:'Name Restaurant min 2 chars...'},
           pattern:{value:Alphabet,message:'Name Restaurant is not alphabet...'}
         })} type="text" className="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" />
-        {errors.NameRestaurant && <p className=' text-red-500'>{errors.NameRestaurant.message}</p>}
+        {errors.name && <p className=' text-red-500'>{errors.name.message}</p>}
         </div>
         <div>
           <label className="block mb-1 text-gray-600 font-semibold">City</label>

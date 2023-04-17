@@ -1,36 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {restaurant} from '../data/stores'
+import { restaurant } from "../data/stores";
 
-const initialState={
+const initialState = {
   restaurant,
-}
+};
 
 const restaurantSlice = createSlice({
-  name: "restaurant",
+  name:'restaurant',
   initialState,
   reducers: {
-    getStore:(state,action)=>{
-      const restaurant = localStorage.getItem('restaurant')
-      state.restaurant = restaurant ? JSON.parse(restaurant) : []
+    addStore: (state, action) => {
+      const storeObj = action.payload;
+      storeObj.id = Date.now();
+      state.restaurant.push(storeObj);
+      saveInLocalStorage(state.restaurant);
+      console.log(restaurant);
     },
-
-    addStore:(state,action)=>{
-      const storeObj = action.payload
-      storeObj.id = Date.now()
-      state.restaurant.push(storeObj)
-      saveInLocalStorage(state.restaurant)
+    getRestaurant: (state) => {
+      const restaurant = localStorage.getItem('restaurant');
+      state.restaurant = restaurant ? JSON.parse(restaurant) : [];
     },
+    singleRestaurant: (state,action)=> {
+      const id = action.payload;
+      const restaurants =JSON.parse(localStorage.getItem('restaurant'));
 
-    // storeInfo:(state,action)=>{
-    //   state.stores = state.stores.filter(store => store.id !== action.payload)
-    //   saveInLocalStorage(state.stores)
-    // }
+      const filter = restaurants.find((restaurant)=>restaurant.id == id);
+      state.singleRestaurant = filter;
+      
+    }
 
+
+
+
+
+    
   },
 });
-const saveInLocalStorage = (restaurant) => {
-    localStorage.setItem('restaurant',JSON.stringify(restaurant));
-  }
 
-export const {addStore, storeInfo , getStore} = restaurantSlice.actions 
+const saveInLocalStorage = (restaurant) => {
+  localStorage.setItem('restaurant', JSON.stringify(restaurant));
+};
+
+export const { addStore, getRestaurant,singleRestaurant } = restaurantSlice.actions;
 export default restaurantSlice.reducer;

@@ -6,7 +6,7 @@ export const restaurant = [
     price: "$45",
     main_image: "https://www.gov.il/BlobFolder/news/top-50-best-restaurants-in-the-middle-east/en/restaurant.jpg",
     cuisine: "French",
-    images: [],
+    images: ["https://www.kew.org/sites/default/files/2022-11/The%20Pavilion%20Restaurant%20new.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJzBY52wwkS-cUP7-WSHzwA5NPC4FyVavjN_ATRouHxLzhrFveKIZ_KtIB7Q--sIJDVQ&usqp=CAU","https://media.istockphoto.com/id/480379752/photo/cook-decorating-a-plate.jpg?s=612x612&w=0&k=20&c=hPxt_XDChTVm219Twis4LWVX6zmw_191A6IVsjxLJdM=","https://img.haarets.co.il/bs/00000185-defa-db69-a3ed-dffe3bbf0003/e2/17/70055cfe49b4bea54250a6c0a1e2/16795.jpg?height=630&width=1200"],
     description: "La Petite France is a charming French bistro located in the heart of Paris. We offer classic French dishes made with fresh, local ingredients."
     },
     {

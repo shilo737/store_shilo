@@ -5,24 +5,24 @@ const StoreInput = () => {
 
 const inputRef = useRef()
 const navigate = useNavigate()
-// const onClicks = () => {
-//     let input_val = inputRef.current.value;
-//     navigate(`/?s=${input_val}`);
-//   };
+const onClicks = () => {
+    let input_val = inputRef.current.value;
+    navigate(`/search/?city=${input_val}`);
+  };
 return (
     <div>
       <div className="form-control ">
         <div className="input-group">
           <input
           onKeyDown={(e) => {
-            if (e.key == "Enter") onClicks();
-            }}
+            if (e.key == "Enter")
+            onClicks()}}
             ref={inputRef}
             type="text"
             placeholder="Search…"
             className="input input-bordered bg-gradient-to-br from-sky-800 to-indigo-700"
           />
-          <button onClick={() =>navigate("/"),} className="btn btn-square">
+          <button className="btn btn-square">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

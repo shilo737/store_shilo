@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import NotFound404 from './NotFound404';
 import AddRestaurant from '../components/AddRestaurant';
 import StoreInfo from '../components/StoreInfo';
+import StoreItem from '../components/StoreItem';
 
 
 const AppRouters = () => {
@@ -15,6 +16,7 @@ const AppRouters = () => {
                 <Route index element={<Home/>}/>
                 <Route path='/add' element={<AddRestaurant/>}/>
                 <Route path='/resId/:id' element={<StoreInfo/>}/>
+                <Route path='/search/?city' element={<StoreItem/>}/>
 
             </Route>
             

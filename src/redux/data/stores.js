@@ -1,4 +1,4 @@
-export const stores = [
+export const restaurant = [
     {
     id: 1,
     name: "La Petite France",

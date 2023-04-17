@@ -1,21 +1,18 @@
-import React,{ useState } from "react";
+import React from "react";
 import { useForm } from 'react-hook-form';
 import {addStore} from '../redux/features/restaurantSlice'
 import { useDispatch, useSelector } from "react-redux";
 const AddRestaurant = () => {
 const dispatch = useDispatch()
+
 const {register , handleSubmit,reset,formState:{errors}} = useForm();
 const Alphabet = /^[a-zA-Z\s]+$/;
-
-const {stores} = useSelector((store)=>store.restaurantReducer) 
-
 const onSub = (data) => {
 dispatch(addStore(data))
 console.log(data);
 }
  
   return (
-    
  <div className="h-screen bg-gradient-to-br from-pink-300 to-indigo-700 flex justify-center items-center w-full">
   <form onSubmit={handleSubmit(onSub)}>
     <div className="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
@@ -23,7 +20,7 @@ console.log(data);
         <h1 className="text-center text-2xl font-semibold text-gray-600">Restaurant</h1>
         <div>
           <label className="block mb-1 text-gray-600 font-semibold">Name Restaurant</label>
-          <input {...register('NameRestaurant',
+          <input {...register('name',
           {
           required:{value:true,message:'Name Restaurant required...'},
           maxLength:{value:20,message:'Name Restaurant max 20 chars...'},
